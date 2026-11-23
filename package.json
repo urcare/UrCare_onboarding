@@ -1,0 +1,18 @@
+{
+  "name": "urcare-onboarding",
+  "version": "1.0.0",
+  "description": "UrCare employee onboarding: joining form, combined PDF, WhatsApp and email delivery",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "allow-resubmit": "node scripts/allow-resubmit.js"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}

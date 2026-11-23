@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Employee data (Aadhaar, PAN, bank, documents) stays on this computer only
+storage/*
+!storage/.gitkeep
+*.pdf

@@ -1,0 +1,4 @@
+# Employee data stays on this computer only
+*
+!.gitignore
+!.gitkeep

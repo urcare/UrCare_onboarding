@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>UrCare joining documents</title>
+  <meta name="description" content="Submit your UrCare joining documents online.">
+  <meta name="theme-color" content="#146C34">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/montserrat-var.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/fonts/sourcesans3-var.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+  <a class="skip" href="#panel">Skip to form</a>
+
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="UrCare home">
+      <img src="/assets/logo-mark.png" alt="" width="48" height="44">
+      <span class="wordmark">UrCare.</span>
+    </a>
+    <p class="tagline">We are always with you</p>
+  </header>
+
+  <main class="shell">
+    <!-- The paper checklist, live -->
+    <aside class="checklist" aria-labelledby="cl-title">
+      <div class="cl-head">
+        <h2 id="cl-title">Joining checklist</h2>
+        <p class="cl-count" aria-live="polite"><strong id="doneCount">0</strong> of 8 ready</p>
+      </div>
+      <ol class="cl-list">
+        <li data-item="1" data-step="2"><span class="cl-num">1</span><span class="cl-label">Aadhaar Card</span><span class="cl-leader"></span><span class="cl-tick" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></span></li>
+        <li data-item="2" data-step="2"><span class="cl-num">2</span><span class="cl-label">PAN Card</span><span class="cl-leader"></span><span class="cl-tick" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></span></li>
+        <li data-item="3" data-step="2"><span class="cl-num">3</span><span class="cl-label">Passport size photograph</span><span class="cl-leader"></span><span class="cl-tick" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></span></li>
+        <li data-item="4" data-step="3"><span class="cl-num">4</span><span class="cl-label">Resume / CV</span><span class="cl-leader"></span><span class="cl-tick" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></span></li>
+        <li data-item="5" data-step="3"><span class="cl-num">5</span><span class="cl-label">Educational certificates</span><span class="cl-leader"></span><span class="cl-tick" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></span></li>
+        <li data-item="6" data-step="3"><span class="cl-num">6</span><span class="cl-label">Experience or fresher</span><span class="cl-leader"></span><span class="cl-tick" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></span></li>
+        <li data-item="7" data-step="4"><span class="cl-num">7</span><span class="cl-label">Bank passbook and IFSC</span><span class="cl-leader"></span><span class="cl-tick" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></span></li>
+        <li data-item="8" data-step="4"><span class="cl-num">8</span><span class="cl-label">Address</span><span class="cl-leader"></span><span class="cl-tick" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></span></li>
+      </ol>
+      <p class="cl-note">Everything you add goes into one PDF for the UrCare team.</p>
+    </aside>
+
+    <section class="panel" id="panel" tabindex="-1">
+      <div id="formView">
+        <div class="intro" id="intro">
+          <h1>Your joining documents, in one place</h1>
+          <p>Fill in the 8 items from the UrCare joining checklist. When you submit, everything is put into a single PDF and sent to UrCare on WhatsApp and email. You can submit only once, so check everything before you send.</p>
+        </div>
+
+        <div class="stepper" aria-live="polite">
+          <p class="stepper-count">Step <span id="stepNo">1</span> of 5</p>
+          <div class="stepper-bar" aria-hidden="true"><span id="stepBar"></span></div>
+        </div>
+
+        <div class="notice" id="dupNotice" role="alert" tabindex="-1" hidden>
+          <span class="notice-icon" aria-hidden="true"></span>
+          <div>
+            <p class="notice-title">You have already submitted</p>
+            <p class="notice-text" id="dupText"></p>
+          </div>
+        </div>
+
+        <form id="form" novalidate autocomplete="on">
+          <!-- STEP 1 -->
+          <fieldset class="step is-active" data-step="1">
+            <legend>About you</legend>
+            <div class="grid">
+              <div class="field span-2">
+                <label for="fullName">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" maxlength="80" placeholder="As written on your Aadhaar" required>
+                <p class="err" id="fullName-err"></p>
+              </div>
+              <div class="field">
+                <label for="mobile">WhatsApp number <span class="req" aria-hidden="true">*</span></label>
+                <div class="affix"><span class="prefix">+91</span>
+                  <input id="mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile" required>
+                </div>
+                <p class="hint">Your copy of the PDF is sent here.</p>
+                <p class="err" id="mobile-err"></p>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="name@example.com" required>
+                <p class="hint">One submission per email and mobile number.</p>
+                <p class="err" id="email-err"></p>
+              </div>
+              <div class="field">
+                <label for="designation">Joining as <span class="opt">optional</span></label>
+                <input id="designation" name="designation" type="text" maxlength="80" placeholder="e.g. Nurse, Dietitian, Receptionist">
+              </div>
+              <div class="field">
+                <label for="joiningDate">Date of joining <span class="opt">optional</span></label>
+                <input id="joiningDate" name="joiningDate" type="date">
+                <p class="err" id="joiningDate-err"></p>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <!-- STEP 2 -->
+          <fieldset class="step" data-step="2" hidden>
+            <legend>ID proofs and photo</legend>
+
+            <div class="item">
+              <h3 class="item-title"><span class="item-num">1</span>Aadhaar Card</h3>
+              <div class="field">
+                <label for="aadhaarNumber">Aadhaar number <span class="req" aria-hidden="true">*</span></label>
+                <input id="aadhaarNumber" name="aadhaarNumber" type="text" inputmode="numeric" placeholder="1234 5678 9012" autocomplete="off" required>
+                <p class="err" id="aadhaarNumber-err"></p>
+              </div>
+              <div class="upload" data-field="aadhaarFiles" data-max="2">
+                <label class="drop">
+                  <input type="file" accept="image/*,application/pdf" multiple>
+                  <span class="drop-icon" aria-hidden="true"></span>
+                  <span class="drop-text"><strong>Upload Aadhaar card</strong><span>Front and back. Photo or PDF, up to 10 MB each.</span></span>
+                </label>
+                <ul class="files"></ul>
+                <p class="err" id="aadhaarFiles-err"></p>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="item-title"><span class="item-num">2</span>PAN Card</h3>
+              <div class="field">
+                <label for="panNumber">PAN number <span class="req" aria-hidden="true">*</span></label>
+                <input id="panNumber" name="panNumber" type="text" placeholder="ABCDE1234F" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+                <p class="err" id="panNumber-err"></p>
+              </div>
+              <div class="upload" data-field="panFile" data-max="1">
+                <label class="drop">
+                  <input type="file" accept="image/*,application/pdf">
+                  <span class="drop-icon" aria-hidden="true"></span>
+                  <span class="drop-text"><strong>Upload PAN card</strong><span>Photo or PDF, up to 10 MB.</span></span>
+                </label>
+                <ul class="files"></ul>
+                <p class="err" id="panFile-err"></p>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="item-title"><span class="item-num">3</span>Passport size photograph</h3>
+              <div class="upload upload-photo" data-field="photo" data-max="1" data-images-only="true" data-max-mb="10">
+                <label class="drop">
+                  <input type="file" accept="image/*">
+                  <span class="drop-icon is-photo" aria-hidden="true"></span>
+                  <span class="drop-text"><strong>Upload your photo</strong><span>A recent passport size photo with a plain background. JPG or PNG, up to 10 MB.</span></span>
+                </label>
+                <ul class="files"></ul>
+                <p class="err" id="photo-err"></p>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <!-- STEP 3 -->
+          <fieldset class="step" data-step="3" hidden>
+            <legend>Education and work</legend>
+
+            <div class="item">
+              <h3 class="item-title"><span class="item-num">4</span>Resume / CV</h3>
+              <div class="choice" role="radiogroup" aria-labelledby="hasResume-lbl">
+                <p class="choice-q" id="hasResume-lbl">Do you have a resume? <span class="req" aria-hidden="true">*</span></p>
+                <label class="pill"><input type="radio" name="hasResume" value="yes"><span>Yes, I'll upload it</span></label>
+                <label class="pill"><input type="radio" name="hasResume" value="no"><span>No</span></label>
+              </div>
+              <p class="err" id="hasResume-err"></p>
+              <div class="reveal" data-show-when="hasResume=yes" hidden>
+                <div class="upload" data-field="resumeFile" data-max="1">
+                  <label class="drop">
+                    <input type="file" accept="image/*,application/pdf">
+                    <span class="drop-icon" aria-hidden="true"></span>
+                    <span class="drop-text"><strong>Upload resume</strong><span>PDF or photo, up to 10 MB.</span></span>
+                  </label>
+                  <ul class="files"></ul>
+                  <p class="err" id="resumeFile-err"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="item-title"><span class="item-num">5</span>Educational certificates</h3>
+              <div class="upload" data-field="educationFiles" data-max="8">
+                <label class="drop">
+                  <input type="file" accept="image/*,application/pdf" multiple>
+                  <span class="drop-icon" aria-hidden="true"></span>
+                  <span class="drop-text"><strong>Upload certificates and marksheets</strong><span id="eduDropHint">Up to 8 files. Photo or PDF, 10 MB each.</span></span>
+                </label>
+                <ul class="files"></ul>
+                <p class="err" id="educationFiles-err"></p>
+              </div>
+              <div class="field">
+                <label for="educationDetails">Your qualifications <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="educationDetails" name="educationDetails" rows="3" maxlength="600" placeholder="e.g. B.Sc Nursing, HNB University, 2024&#10;Class 12, CBSE, 2020"></textarea>
+                <p class="ai-note" id="eduAi" aria-live="polite" hidden></p>
+                <p class="err" id="educationDetails-err"></p>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="item-title"><span class="item-num">6</span>Experience or fresher</h3>
+              <div class="choice" role="radiogroup" aria-labelledby="workStatus-lbl">
+                <p class="choice-q" id="workStatus-lbl">Have you worked before? <span class="req" aria-hidden="true">*</span></p>
+                <label class="pill"><input type="radio" name="workStatus" value="experienced"><span>Experience</span></label>
+                <label class="pill"><input type="radio" name="workStatus" value="fresher"><span>Fresher</span></label>
+              </div>
+              <p class="err" id="workStatus-err"></p>
+              <div class="reveal" data-show-when="workStatus=experienced" hidden>
+                <div class="grid">
+                  <div class="field">
+                    <label for="experienceYears">Total experience (years) <span class="req" aria-hidden="true">*</span></label>
+                    <input id="experienceYears" name="experienceYears" type="number" inputmode="decimal" min="0.5" max="50" step="0.5" placeholder="e.g. 2">
+                    <p class="err" id="experienceYears-err"></p>
+                  </div>
+                  <div class="field">
+                    <label for="lastCompany">Last company <span class="req" aria-hidden="true">*</span></label>
+                    <input id="lastCompany" name="lastCompany" type="text" maxlength="100" placeholder="Hospital or company name">
+                    <p class="err" id="lastCompany-err"></p>
+                  </div>
+                </div>
+                <div class="upload" data-field="experienceFiles" data-max="4">
+                  <label class="drop">
+                    <input type="file" accept="image/*,application/pdf" multiple>
+                    <span class="drop-icon" aria-hidden="true"></span>
+                    <span class="drop-text"><strong>Upload experience or relieving letter</strong><span>Optional. Up to 4 files.</span></span>
+                  </label>
+                  <ul class="files"></ul>
+                  <p class="err" id="experienceFiles-err"></p>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- STEP 4 -->
+          <fieldset class="step" data-step="4" hidden>
+            <legend>Bank and address</legend>
+
+            <div class="item">
+              <h3 class="item-title"><span class="item-num">7</span>Bank passbook</h3>
+              <div class="grid">
+                <div class="field">
+                  <label for="bankAccount">Account number <span class="req" aria-hidden="true">*</span></label>
+                  <input id="bankAccount" name="bankAccount" type="text" inputmode="numeric" autocomplete="off" placeholder="9 to 18 digits">
+                  <p class="err" id="bankAccount-err"></p>
+                </div>
+                <div class="field">
+                  <label for="bankAccountConfirm">Re-enter account number <span class="req" aria-hidden="true">*</span></label>
+                  <input id="bankAccountConfirm" type="text" inputmode="numeric" autocomplete="off" placeholder="Same as above">
+                  <p class="err" id="bankAccountConfirm-err"></p>
+                </div>
+                <div class="field">
+                  <label for="ifsc">IFSC code <span class="req" aria-hidden="true">*</span></label>
+                  <input id="ifsc" name="ifsc" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="SBIN0001234">
+                  <p class="hint">Printed on your passbook or cheque.</p>
+                  <p class="err" id="ifsc-err"></p>
+                </div>
+              </div>
+              <div class="upload" data-field="passbookFile" data-max="1">
+                <label class="drop">
+                  <input type="file" accept="image/*,application/pdf">
+                  <span class="drop-icon" aria-hidden="true"></span>
+                  <span class="drop-text"><strong>Upload passbook front page</strong><span>Or a cancelled cheque. Photo or PDF, up to 10 MB.</span></span>
+                </label>
+                <ul class="files"></ul>
+                <p class="err" id="passbookFile-err"></p>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="item-title"><span class="item-num">8</span>Address</h3>
+              <div class="field">
+                <label for="address">Current address with PIN code <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="address" name="address" rows="3" maxlength="400" autocomplete="street-address" placeholder="House no., street, area, city, state, PIN"></textarea>
+                <p class="err" id="address-err"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- STEP 5 -->
+          <fieldset class="step" data-step="5" hidden>
+            <legend>Check and submit</legend>
+            <p class="lead">Check your details. Tap Edit to change anything.</p>
+            <div id="review" class="review"></div>
+            <label class="declare">
+              <input type="checkbox" id="declaration" name="declaration" value="yes">
+              <span>I confirm these details and documents are true and belong to me.</span>
+            </label>
+            <p class="err" id="declaration-err"></p>
+          </fieldset>
+
+          <div class="actions">
+            <button type="button" class="btn btn-ghost" id="backBtn" hidden>Back</button>
+            <button type="submit" class="btn btn-primary" id="nextBtn">Continue</button>
+          </div>
+          <p class="form-error" id="formError" role="alert" hidden></p>
+        </form>
+      </div>
+
+      <!-- SUCCESS -->
+      <div id="doneView" class="done" hidden>
+        <div class="done-art" aria-hidden="true">
+          <svg viewBox="0 0 160 170" class="sheet">
+            <rect x="18" y="10" width="112" height="146" rx="10" class="sheet-paper"/>
+            <path d="M36 40h60M36 56h76M36 72h52M36 88h70M36 104h44" class="sheet-lines"/>
+            <g class="stamp">
+              <circle cx="116" cy="124" r="30"/>
+              <path d="M102 124l9 9 18-19"/>
+            </g>
+          </svg>
+        </div>
+        <h1 tabindex="-1" id="doneTitle">Documents submitted</h1>
+        <p class="done-sub">Your file is ready. Reference <strong id="doneRef"></strong></p>
+
+        <ul class="wa-status" id="waStatus"></ul>
+
+        <div class="done-actions">
+          <a class="btn btn-primary" id="downloadBtn" href="#" download>Download PDF</a>
+          <a class="btn btn-wa" id="waAdminBtn" href="#" target="_blank" rel="noopener" hidden>Send to admin on WhatsApp</a>
+          <button type="button" class="btn btn-soft" id="shareBtn">Share PDF</button>
+          <button type="button" class="btn btn-ghost" id="copyBtn">Copy link</button>
+        </div>
+        <p class="done-file"><span id="doneFile"></span></p>
+        <p class="toast" id="toast" role="status" aria-live="polite"></p>
+        <button type="button" class="linkish" id="againBtn">Fill a form for someone else</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sending overlay -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="overlay-card" role="status" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="overlay-title" id="overlayTitle">Uploading your documents</p>
+      <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+      <p class="overlay-sub" id="overlaySub">Please keep this page open.</p>
+    </div>
+  </div>
+
+  <script src="/js/app.js?v=3" defer></script>
+</body>
+</html>
