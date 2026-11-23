@@ -167,7 +167,7 @@ async function finishSubmit(req, res, data, files) {
 
   // Send on WhatsApp and by email at the same time
   const [whatsapp, email] = await Promise.all([
-    sendOnboardingPdf({ buffer: pdf, filename: fileName, data, ref }),
+    sendOnboardingPdf({ buffer: pdf, filename: fileName, data, ref, fileUrl }),
     mailer.emailOnboardingPdf({ buffer: pdf, filename: fileName, data, ref, fileUrl }),
   ]);
 
@@ -333,7 +333,7 @@ setInterval(cleanup, 12 * 3600 * 1000).unref();
 
 server.listen(PORT, () => {
   console.log(`UrCare onboarding running at http://localhost:${PORT}`);
-  console.log(isConfigured() ? 'WhatsApp auto-send: ON' : 'WhatsApp auto-send: OFF (add WA_TOKEN and WA_PHONE_NUMBER_ID in .env)');
+  console.log(isConfigured() ? 'WhatsApp auto-send (AiSensy): ON' : 'WhatsApp auto-send (AiSensy): OFF (add AISENSY_API_KEY and AISENSY_CAMPAIGN_ADMIN in .env)');
   console.log(groq.isConfigured() ? 'Marksheet auto-read (Groq): ON' : 'Marksheet auto-read (Groq): OFF (add GROQ_API_KEY in .env)');
   console.log(mailer.isConfigured() ? 'Email to admin: ON' : 'Email to admin: OFF (add ADMIN_EMAIL, SMTP_USER and SMTP_PASS in .env)');
 });

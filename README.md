@@ -33,7 +33,7 @@ npm start
 Open http://localhost:3000
 
 The site works without WhatsApp or email settings: the PDF is still made, and the employee
-can download or share it. WhatsApp switches on when `WA_TOKEN` and `WA_PHONE_NUMBER_ID` are set;
+can download or share it. WhatsApp switches on when `AISENSY_API_KEY` and `AISENSY_CAMPAIGN_ADMIN` are set;
 email switches on when `ADMIN_EMAIL`, `SMTP_USER` and `SMTP_PASS` are set.
 
 ---
@@ -74,36 +74,27 @@ Their old PDF stays in `storage/`.
 
 ---
 
-## WhatsApp auto-send (Meta WhatsApp Cloud API)
+## WhatsApp auto-send (AiSensy)
 
-This uses Meta's official API, so messages come from your UrCare business number.
+The PDF is sent on WhatsApp through an AiSensy API campaign.
 
-1. Go to https://developers.facebook.com, create an app of type **Business** and add the **WhatsApp** product.
-2. On **WhatsApp > API Setup**, copy the **Phone number ID** into `WA_PHONE_NUMBER_ID`.
-3. Create an access token and put it in `WA_TOKEN`.
-   The token on the API Setup page is temporary; for a permanent one, create a **System user** in
-   Meta Business Settings and give it the `whatsapp_business_messaging` permission.
-4. Put the admin/doctor number in `ADMIN_WHATSAPP` with country code, e.g. `919876543210`.
-   Several numbers: `919876543210,919812345678`.
-5. While the app is in test mode, add the admin's number (and your test employee numbers) to the
-   allowed recipient list on the API Setup page.
-
-### Template (recommended)
-
-WhatsApp only delivers a plain document to someone who has messaged your business number in the
-last 24 hours. To reach anyone at any time, create a message template:
-
-- Category: **Utility**
-- Header: **Document**
-- Body, for example: `Joining documents of {{1}} are attached. - UrCare`
-
-When Meta approves it, set:
+1. In AiSensy, create a **Utility** template with a **Document** header, for example
+   body: `New joining documents from {{1}} are attached. - UrCare`. Wait for approval.
+2. **Campaigns > Launch > API Campaign**: pick that template and set the campaign live. Note its name.
+3. **Manage > API Key**: copy the key.
+4. In `.env`:
 
 ```
-WA_TEMPLATE_NAME=your_template_name
-WA_TEMPLATE_LANG=en
-WA_TEMPLATE_BODY_HAS_NAME=true   # false if the body has no {{1}}
+AISENSY_API_KEY=your_key
+AISENSY_CAMPAIGN_ADMIN=your_campaign_name
+AISENSY_CAMPAIGN_EMPLOYEE=          # optional, a second campaign for the employee copy
+AISENSY_TEMPLATE_PARAMS=name        # values for {{1}}, {{2}}...: name, mobile, email, ref, designation, joiningDate
+ADMIN_WHATSAPP=919876543210         # admin / doctor number(s), with 91, comma-separated
+PUBLIC_URL=https://your-site.com    # REQUIRED: AiSensy downloads the PDF from this address
 ```
+
+AiSensy fetches the PDF from a link, so the site must be reachable on the internet
+(`PUBLIC_URL`). On `localhost` WhatsApp sending is skipped with a clear message.
 
 If sending fails, the employee sees it on the success screen and gets a
 **Send to admin on WhatsApp** button instead. Errors are also printed in the server log.
@@ -130,7 +121,7 @@ Never commit `.env` or `storage/` to git (they are already in `.gitignore`).
 server.js            Web server and API (/api/submit, /files/..., static site)
 lib/validate.js      Checks every field and file (type, size, locked PDFs, Aadhaar checksum)
 lib/pdf.js           Builds the combined PDF (pdf-lib)
-lib/whatsapp.js      Uploads the PDF and sends it via the WhatsApp Cloud API
+lib/whatsapp.js      Sends the PDF on WhatsApp via AiSensy
 lib/mailer.js        Emails the PDF (Gmail / any SMTP), no extra package needed
 lib/registry.js      Remembers who already submitted (storage/submissions.json)
 scripts/             allow-resubmit.js
